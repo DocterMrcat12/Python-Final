@@ -108,5 +108,10 @@ len(df.profit[non_numeric_profits])
 ```
 369
 ```
+Plotting Histiogram of N.A. Values by Year
+``` python
+bin_sizes, _, _ = plt.hist(df.year[non_numeric_profits], bins= range(1955, 2006) )
+```
 
+![Histiogram](https://github.com/DocterMrcat12/Python-Final/assets/133600341/1302a34e-3d11-439f-82fd-488a06a5c1fc)
 
