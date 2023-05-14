@@ -21,72 +21,36 @@ df.head()
 
 <!-- making this table might actually kill me -->
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+|  | Year |Rank |Company |Revenue (in millions) |Profit (In millions) |
+| ------------- | ------------- | ---------- | ----------| ---------- | ---------- |
+| 0 | 1995 | 1 | General Motors| 9823.5 | 806 |
+| 1 | 1995 | 2 | Exxon Mobil| 5661.4 | 584.8 |
+| 2 | 1995 | 3 | U.S. Steel| 3250.4 | 195.4 |
+| 3 | 1995 | 4 | General Electric | 2959.1 | 212.6 |
+| 4 | 1995 | 5 | Esmark | 2510.8 | 19.1 |
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
+<!-- if I have to go back and fix this I will die -->
 
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Year</th>
-      <th>Rank</th>
-      <th>Company</th>
-      <th>Revenue (in millions)</th>
-      <th>Profit (in millions)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>0</td>
-      <td>1955</td>
-      <td>1</td>
-      <td>General Motors</td>
-      <td>9823.5</td>
-      <td>806</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>1955</td>
-      <td>2</td>
-      <td>Exxon Mobil</td>
-      <td>5661.4</td>
-      <td>584.8</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>1955</td>
-      <td>3</td>
-      <td>U.S. Steel</td>
-      <td>3250.4</td>
-      <td>195.4</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>1955</td>
-      <td>4</td>
-      <td>General Electric</td>
-      <td>2959.1</td>
-      <td>212.6</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>1955</td>
-      <td>5</td>
-      <td>Esmark</td>
-      <td>2510.8</td>
-      <td>19.1</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+``` python
+df.tail()
+```
+
+|  | Year |Rank |Company |Revenue (in millions) |Profit (In millions) |
+| ------------- | ------------- | ---------- | ----------| ---------- | ---------- |
+| 25495 | 2005 | 496 | Wm. Wrigley Jr.| 3648.6 | 493 |
+| 25496 | 2005 | 497 | Peabody Energy| 3631.6 | 175.4|
+| 25497| 2005 | 498 | Wendy's International| 3630.4 | 57.8 |
+| 25498 | 2005 | 499 | Kindred Healthcare | 3616.6 | 70.6 |
+| 25499 | 2005 | 500 | Cincinnati Financial | 3614.0 | 584 |
+
+``` python
+df.columns = ['year', 'rank', 'company', 'revenue', 'profit']
+```
+
+|  | year |rank |company |revenue |profit  |
+| ------------- | ------------- | ---------- | ----------| ---------- | ---------- |
+| 0 | 1995 | 1 | General Motors| 9823.5 | 806 |
+| 1 | 1995 | 2 | Exxon Mobil| 5661.4 | 584.8 |
+| 2 | 1995 | 3 | U.S. Steel| 3250.4 | 195.4 |
+| 3 | 1995 | 4 | General Electric | 2959.1 | 212.6 |
+| 4 | 1995 | 5 | Esmark | 2510.8 | 19.1 |
