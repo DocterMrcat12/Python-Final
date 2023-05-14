@@ -1,6 +1,6 @@
 # Python-Final
  Final for BISC 450
-## Useing Jupiter Notebooks (1) 
+## Useing Jupiter Notebooks (1 and 2) 
 
 <!-- Its rude to look at a girls code. Nothing to see here just a bunch of notes. That was a joke by the way...-->
 Importing Data Packages
