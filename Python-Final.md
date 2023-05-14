@@ -3,6 +3,7 @@
 ## Useing Jupiter Notebooks (1) 
 
 <!-- Its rude to look at a girls code. Nothing to see here just a bunch of notes. That was a joke by the way...-->
+Importing Data Packages
 ``` python
 %matplotlib inline
 import pandas as pd
@@ -11,10 +12,12 @@ import seaborn as sns
 sns.set(style = "darkgrid")
 ```
 <!-- each code block set up sepeartly -->
+Reading Imported File
 ``` python
 df = pd.read_csv('/home/student/Desktop/classroom/myfiles/Notebooks/fortune500.csv')
 ```
 <!-- Excuse the stupid notes that will follow they stop me from going insane from all the copy pasting -->
+Reading Head of File
 ``` python
 df.head()
 ```
@@ -31,6 +34,7 @@ df.head()
 
 <!-- if I have to go back and fix this I will die -->
 
+Reading Tail of File
 ``` python
 df.tail()
 ```
@@ -43,6 +47,7 @@ df.tail()
 | 25498 | 2005 | 499 | Kindred Healthcare | 3616.6 | 70.6 |
 | 25499 | 2005 | 500 | Cincinnati Financial | 3614.0 | 584 |
 
+Renaming Columns of File
 ``` python
 df.columns = ['year', 'rank', 'company', 'revenue', 'profit']
 ```
@@ -54,3 +59,11 @@ df.columns = ['year', 'rank', 'company', 'revenue', 'profit']
 | 2 | 1995 | 3 | U.S. Steel| 3250.4 | 195.4 |
 | 3 | 1995 | 4 | General Electric | 2959.1 | 212.6 |
 | 4 | 1995 | 5 | Esmark | 2510.8 | 19.1 |
+
+Figuring out Ammount of Rows
+``` python
+len(df)
+```
+```
+25500
+```
