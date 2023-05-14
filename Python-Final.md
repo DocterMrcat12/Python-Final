@@ -67,3 +67,46 @@ len(df)
 ```
 25500
 ```
+Listing Types of Various Columns 
+``` python
+df.dtypes
+```
+```
+year         int64
+rank         int64
+company     object
+revenue    float64
+profit      object
+dtype: object
+```
+Listing Non-Numeric Profit Items Head
+```python
+non_numeric_profits = df.profit.str.contains('[^0-9.-]')
+df.loc[non_numeric_profits].head()
+```
+|  | year |rank |company |revenue |profit  |
+| ------------- | ------------- | ---------- | ----------| ---------- | ---------- |
+| 228 | 1955 | 229 | Norton| 135.0 | N.A. |
+| 290 | 1955 | 291 | Schlitz Brewing| 100.0 | N.A. |
+| 294 | 1955 | 295 | Pacific Vegetable Oil| 97.9 | N.A. |
+| 296 | 1955 | 297 | Liebmann Breweries | 96.0 | N.A. |
+| 352 | 1955 | 353 | Minneapolis-Moline | 77.4| N.A. |
+
+<!-- why wont python just let me copy the tables ;-; -->
+
+Listing All Non-Numeric Profit Sets
+``` python
+set(df.profit[non_numeric_profits])
+```
+```
+{'N.A.'}
+```
+Listing How Many N.A. Values Exist in Data Set
+``` python
+len(df.profit[non_numeric_profits])
+```
+```
+369
+```
+
+
