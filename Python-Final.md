@@ -187,3 +187,183 @@ fig.tight_layout()
 
 ![Done](https://github.com/DocterMrcat12/Python-Final/assets/133600341/001cc338-6495-46a9-a98b-f5dfdc37d2be)
 
+<!-- I regret everything, I suck at unpaced classes, and now it's crunch time baby, three days and 2/3 of the class... I thinpeoplepeople'sinitialsI'mk most poeple literally just copy pasted other peoples code for this just saying just in case let me sneak in my initals all over the place - AV though I doubt anyone will steal my code since im going to be turning it in last minute :P -->
+
+## Python Fundamentals
+
+Any Python Interpreter can be used as a calculator:
+
+``` python 
+3 + 4 * 4
+``` 
+```
+23
+```
+Saving Variables in Python
+
+``` python 
+weight_kg = 60
+```
+
+``` python
+print(weight_kg)
+```
+
+```
+60
+```
+
+Setting Peramitors For Vairbales
+
+```
+Weight0 = Valud
+0weight = invalid
+weight and Weight are diffrent
+```
+
+The Diffrent Types of Data
+
+```
+Interger Numbers: All Whole Numbers (exp. 60)
+Floating Point Numbers: Numbers with Decimals (exp. 60.3)
+Strings: Any Combination of Valid Charicters Made into a Variable (exp. Jhon_Smith)
+```
+
+``` python
+weight_kg = 60.3
+```
+``` python
+patient_name = "Jon Smith"
+```
+``` python
+patient_id = 001
+```
+
+Using Preset Variables to Perform Calculations
+
+``` python
+weight_lb = 2.2 * weight_kg
+
+print(weight_lb)
+```
+```
+132.66
+```
+
+Appenging Variables
+``` python
+patient_id = 'inflam_' + patient_id
+
+print(patient_id)
+```
+```
+inflam_001
+```
+
+<!-- apparently this is a poor way to do it but well i dont know the better way-->
+
+Combining Print Statments
+
+``` python
+
+pring(patient_id, 'weight in kilograms:', weight_kg)
+```
+```
+inflam_001 weight in kinograms 60.3
+```
+
+Nested Functions
+
+``` python
+print(type(60.3))
+
+print(type(patient_id))
+```
+```
+<class 'float'>
+<class 'str'>
+```
+
+Calculations Nested in Print Functions
+
+``` python
+print('weight in lbs:', 2,2 * weight_kg)
+```
+```
+weight in lbs: 132.66
+```
+
+Overwriting Variables
+
+``` python
+weight_kg = 65.0
+print('weight in kilograms in now', weight_kg)
+```
+<!-- Sneaky Intials AV-->
+```
+weight in kilograms is now: 65.0
+```
+
+Importing Numpy (A Numcerical Coding System)
+
+``` python 
+import numpy
+```
+
+Loading Text from Numpy Package
+
+``` python 
+numpy.loadtxt(fname = 'inflammation-01.csv', delimiter = ',')
+```
+```
+array([[0., 0., 1., ..., 3., 0., 0.],
+       [0., 1., 2., ..., 1., 0., 1.],
+       [0., 1., 1., ..., 2., 1., 1.],
+       ...,
+       [0., 1., 1., ..., 1., 1., 1.],
+       [0., 0., 0., ..., 0., 2., 0.],
+       [0., 0., 1., ..., 1., 1., 0.]])
+       
+```
+Saving Full Array as 'Data'
+``` python
+data = numpy.loadtxt(fname = 'inflammation-01.csv', delimiter = ',')
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Growing Tally of Intials - 1-->
