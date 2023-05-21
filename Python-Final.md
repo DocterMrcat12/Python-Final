@@ -665,6 +665,75 @@ print(sond)
 ['oct', 'nov', 'dec']
 ```
 
+``` python
+odds = [1, 3, 5, 7]
+
+for num in odds:
+    print(num)
+    ```
+    
+    ```
+    1
+3
+5
+7
+```
+``` python
+print(odds[0])
+print(odds[1])
+print(odds[2])
+print(odds[3])
+```
+
+```
+1
+3
+5
+7
+```
+
+
+```python
+length = 0
+names = ['curie', 'darwin', 'turing']
+
+for value in names:
+    length = length + 1
+print(length)
+```
+
+    3 
+
+
+
+```python
+name = 'rosalind'
+for name in ['curie', 'darwin', 'turing']:
+    print(name)
+print( name)
+```
+
+    curie
+    darwin
+    turing
+    turing
+
+
+
+```python
+print(len([0, 1, 2, 3]))
+```
+
+    4
+
+
+
+```python
+name = ['curie', 'darwin', 'turing']
+print(len(name))
+```
+
+    3
 
 
 
