@@ -366,4 +366,3 @@ data = numpy.loadtxt(fname = 'inflammation-01.csv', delimiter = ',')
 
 
 
-<!-- Growing Tally of Intials - 1-->
