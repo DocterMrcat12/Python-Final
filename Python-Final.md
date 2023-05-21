@@ -1013,7 +1013,6 @@ print_temperatures()
     Temperature in Kelvin was: 373.15
 ```
 
-siydhvbfshdbfioavhbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbdf
 ``` python
 import numpy
 import matplotlib.pyplot
@@ -1203,7 +1202,7 @@ display(55)
 print('two paramters:')
 display(55,66)
 ```
-sdflihhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+```
 
     no parameters:
     a: 1 b: 2 c: 3
@@ -1211,136 +1210,18 @@ sdflihhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
     a: 55 b: 2 c: 3
     two paramters:
     a: 55 b: 66 c: 3
-
+```
 
 
 ```python
 print('only setting the value of c')
 display(c = 77)
 ```
-
+```
     only setting the value of c
     a: 1 b: 2 c: 77
 
-
-
-```python
-help(numpy.loadtxt)
 ```
-
-    Help on function loadtxt in module numpy:
-    
-    loadtxt(fname, dtype=<class 'float'>, comments='#', delimiter=None, converters=None, skiprows=0, usecols=None, unpack=False, ndmin=0, encoding='bytes', max_rows=None)
-        Load data from a text file.
-        
-        Each row in the text file must have the same number of values.
-        
-        Parameters
-        ----------
-        fname : file, str, or pathlib.Path
-            File, filename, or generator to read.  If the filename extension is
-            ``.gz`` or ``.bz2``, the file is first decompressed. Note that
-            generators should return byte strings for Python 3k.
-        dtype : data-type, optional
-            Data-type of the resulting array; default: float.  If this is a
-            structured data-type, the resulting array will be 1-dimensional, and
-            each row will be interpreted as an element of the array.  In this
-            case, the number of columns used must match the number of fields in
-            the data-type.
-        comments : str or sequence of str, optional
-            The characters or list of characters used to indicate the start of a
-            comment. None implies no comments. For backwards compatibility, byte
-            strings will be decoded as 'latin1'. The default is '#'.
-        delimiter : str, optional
-            The string used to separate values. For backwards compatibility, byte
-            strings will be decoded as 'latin1'. The default is whitespace.
-        converters : dict, optional
-            A dictionary mapping column number to a function that will parse the
-            column string into the desired value.  E.g., if column 0 is a date
-            string: ``converters = {0: datestr2num}``.  Converters can also be
-            used to provide a default value for missing data (but see also
-            `genfromtxt`): ``converters = {3: lambda s: float(s.strip() or 0)}``.
-            Default: None.
-        skiprows : int, optional
-            Skip the first `skiprows` lines, including comments; default: 0.
-        usecols : int or sequence, optional
-            Which columns to read, with 0 being the first. For example,
-            ``usecols = (1,4,5)`` will extract the 2nd, 5th and 6th columns.
-            The default, None, results in all columns being read.
-        
-            .. versionchanged:: 1.11.0
-                When a single column has to be read it is possible to use
-                an integer instead of a tuple. E.g ``usecols = 3`` reads the
-                fourth column the same way as ``usecols = (3,)`` would.
-        unpack : bool, optional
-            If True, the returned array is transposed, so that arguments may be
-            unpacked using ``x, y, z = loadtxt(...)``.  When used with a structured
-            data-type, arrays are returned for each field.  Default is False.
-        ndmin : int, optional
-            The returned array will have at least `ndmin` dimensions.
-            Otherwise mono-dimensional axes will be squeezed.
-            Legal values: 0 (default), 1 or 2.
-        
-            .. versionadded:: 1.6.0
-        encoding : str, optional
-            Encoding used to decode the inputfile. Does not apply to input streams.
-            The special value 'bytes' enables backward compatibility workarounds
-            that ensures you receive byte arrays as results if possible and passes
-            'latin1' encoded strings to converters. Override this value to receive
-            unicode arrays and pass strings as input to converters.  If set to None
-            the system default is used. The default value is 'bytes'.
-        
-            .. versionadded:: 1.14.0
-        max_rows : int, optional
-            Read `max_rows` lines of content after `skiprows` lines. The default
-            is to read all the lines.
-        
-            .. versionadded:: 1.16.0
-        
-        Returns
-        -------
-        out : ndarray
-            Data read from the text file.
-        
-        See Also
-        --------
-        load, fromstring, fromregex
-        genfromtxt : Load data with missing values handled as specified.
-        scipy.io.loadmat : reads MATLAB data files
-        
-        Notes
-        -----
-        This function aims to be a fast reader for simply formatted files.  The
-        `genfromtxt` function provides more sophisticated handling of, e.g.,
-        lines with missing values.
-        
-        .. versionadded:: 1.10.0
-        
-        The strings produced by the Python float.hex method can be used as
-        input for floats.
-        
-        Examples
-        --------
-        >>> from io import StringIO   # StringIO behaves like a file object
-        >>> c = StringIO(u"0 1\n2 3")
-        >>> np.loadtxt(c)
-        array([[0., 1.],
-               [2., 3.]])
-        
-        >>> d = StringIO(u"M 21 72\nF 35 58")
-        >>> np.loadtxt(d, dtype={'names': ('gender', 'age', 'weight'),
-        ...                      'formats': ('S1', 'i4', 'f4')})
-        array([(b'M', 21, 72.), (b'F', 35, 58.)],
-              dtype=[('gender', 'S1'), ('age', '<i4'), ('weight', '<f4')])
-        
-        >>> c = StringIO(u"1,0,2\n3,0,4")
-        >>> x, y = np.loadtxt(c, delimiter=',', usecols=(0, 2), unpack=True)
-        >>> x
-        array([1., 3.])
-        >>> y
-        array([2., 4.])
-    
-
 
 
 ```python
@@ -1348,7 +1229,7 @@ numpy.loadtxt('inflammation-01.csv', delimiter = ',')
 ```
 
 
-
+```
 
     array([[0., 0., 1., ..., 3., 0., 0.],
            [0., 1., 2., ..., 1., 0., 1.],
@@ -1359,7 +1240,7 @@ numpy.loadtxt('inflammation-01.csv', delimiter = ',')
            [0., 0., 1., ..., 1., 1., 0.]])
 
 
-
+```
 
 ```python
 def s(p):
@@ -1371,26 +1252,8 @@ def s(p):
     for v in p:
         d += (v - m) * (v - m)
     return numpy.sqrt(d / len(p) - 1)
-
-# same as above, but readable
-def std_dev(sample):
-    sample_sum = 0
-    for value in sample:
-        sample_sum += value
-
-    sample_mean = sample_sum / len(sample)
-
-    sum_squared_devs = 0
-    for value in sample:
-        sum_squared_devs += (value - sample_mean) * (value - sample_mean)
-
-    return numpy.sqrt(sum_sqared_devs / len(sample) - 1)
 ```
-
-
-## Defensive Programming
-Using assertions as part of defensive programming strategies
-
+fdkkhhpihdbvfihbsadfiahbdflahsbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbf
 
 ```python
 numbers = [1.5, 2.3, 0.7, 0.001, 4.4]
@@ -1398,19 +1261,16 @@ total = 0.0
 for num in numbers:
     assert num > 0.0, 'Data should only contain positive values'
     total += num
-print('total is:', total)
+print('total)
 ```
-
-    total is: 8.901
-
+```
+   8.901
+```
 
 
 ```python
 def normalize_rectangle(rect):
-    """Normalizes a rectangle so that it is at the origin and 1.0 units long on its longest axis.
-    Input should be of the format (x0, y0, x1, y1).
-    (x0, y0) and (x1, y1) define the lower left and upper right corners of the recangle, respectively."""
-    assert len(rect) == 4, 'Rectangles must contain 4 coordinates'
+       assert len(rect) == 4, 'Rectangles must contain 4 coordinates'
     x0, y0, x1, y1 = rect
     assert x0 < x1, 'Invalid X coordinates'
     assert y0 < y1, 'Invalid Y coordinates'
@@ -1435,7 +1295,7 @@ def normalize_rectangle(rect):
 print(normalize_rectangle((0.0, 1.0, 2.0)))
 ```
 
-
+```
     ---------------------------------------------------------------------------
 
     AssertionError                            Traceback (most recent call last)
@@ -1453,13 +1313,13 @@ print(normalize_rectangle((0.0, 1.0, 2.0)))
 
 
     AssertionError: Rectangles must contain 4 coordinates
-
+```
 
 
 ```python
 print(normalize_rectangle((4.0, 2.0, 1.0, 5.0)))
 ```
-
+```
 
     ---------------------------------------------------------------------------
 
@@ -1478,22 +1338,22 @@ print(normalize_rectangle((4.0, 2.0, 1.0, 5.0)))
 
 
     AssertionError: Invalid X coordinates
-
+```
 
 
 ```python
 print(normalize_rectangle((0.0, 0.0, 1.0, 5.0)))
 ```
-
+```
     (0, 0, 0.2, 1.0)
-
-
-
-```python
-print(normalize_rectangle((0.0, 0.0, 5.0, 1.0)))
 ```
 
 
+``` python
+print(normalize_rectangle((0.0, 0.0, 5.0, 1.0)))
+```
+
+```
     ---------------------------------------------------------------------------
 
     AssertionError                            Traceback (most recent call last)
@@ -1511,24 +1371,21 @@ print(normalize_rectangle((0.0, 0.0, 5.0, 1.0)))
 
 
     AssertionError: Calculated upper y coordinate invalid
-
-
-## Transcribing DNA into RNA
-A program that takes DNA sequences (formatted as a FASTA file) and produces the equivalent RNA sequence
-
-
-```python
-# Prompt user to enter the input FASTA file name
-
-input_file_name = input("Input the name of the FASTA file to be transcribed: ")
 ```
 
-    Input the name of the FASTA file to be transcribed:  UBC.txt
 
+``` python
+# Prompt the user to enter Fasts file name
 
+input_file_name = input('Enter the name of the input fasta file')
+```
 
-```python
-# Open the input file and read the DNA sequence
+```
+Enter the name of the input fasta file TYR.txt
+```
+
+``` python
+#open the input fasta file and read the DNA sequence
 
 with open(input_file_name, "r") as input_file:
     dna_sequence = ""
@@ -1536,10 +1393,9 @@ with open(input_file_name, "r") as input_file:
         if line.startswith(">"):
             continue
         dna_sequence += line.strip()
-```
-
-
-```python
+        ```
+        
+``` python
 # Transcribe the DNA to RNA
 
 rna_sequence = ""
@@ -1548,73 +1404,53 @@ for nucleotide in dna_sequence:
         rna_sequence += "U"
     else:
         rna_sequence += nucleotide
+        ```
+        
+        ``` python
+        # Prompt the user to enter the output file name
+
+output_file_name = input("Enter the name of the output file:")
+```
+```
+Enter the name of the output file: TYR_RNA.txt
 ```
 
-
-```python
-# Prompt the user to enter the output file name
-
-output_name = input("Enter the name of the ouput file: ")
-```
-
-    Enter the name of the ouput file:  Ubiquitin_C
-
-
-
-```python
+``` python
 # Save the RNA sequence to a text file
 
-with open(output_name, "w") as output_file:
+with open(output_file_name, "w") as output_file: 
     output_file.write(rna_sequence)
-    print(f"The RNA sequence has been saved to {output_name}")
+    print(f"The RNA sequence has been saved to (output_file_name)")
+    ```
+    
+    ```
+    The RNA sequence has been saved to (output_file_name)
+    ```
+    
+    
+    ``` python
+    print(rna_sequence)
+    ```
+    
+    ```
+   AUGCUCCUGGCUGUUUUGUACUGCCUGCUGUGGAGUUUCCAGACCUCCGCUGGCCAUUUCCCUAGAGCCUGUGUCUCCUCUAAGAACCUGAUGGAGAAGGAAUGCUGUCCACCGUGGAGCGGGGACAGGAGUCCCUGUGGCCAGCUUUCAGGCAGAGGUUCCUGUCAGAAUAUCCUUCUGUCCAAUGCACCACUUGGGCCUCAAUUUCCCUUCACAGGGGUGGAUGACCGGGAGUCGUGGCCUUCCGUCUUUUAUAAUAGGACCUGCCAGUGCUCUGGCAACUUCAUGGGAUUCAACUGUGGAAACUGCAAGUUUGGCUUUUGGGGACCAAACUGCACAGAGAGACGACUCUUGGUGAGAAGAAACAUCUUCGAUUUGAGUGCCCCAGAGAAGGACAAAUUUUUUGCCUACCUCACUUUAGCAAAGCAUACCAUCAGCUCAGACUAUGUCAUCCCCAUAGGGACCUAUGGCCAAAUGAAAAAUGGAUCAACACCCAUGUUUAACGACAUCAAUAUUUAUGACCUCUUUGUCUGGAUGCAUUAUUAUGUGUCAAUGGAUGCACUGCUUGGGGGAUCUGAAAUCUGGAGAGACAUUGAUUUUGCCCAUGAAGCACCAGCUUUUCUGCCUUGGCAUAGACUCUUCUUGUUGCGGUGGGAACAAGAAAUCCAGAAGCUGACAGGAGAUGAAAACUUCACUAUUCCAUAUUGGGACUGGCGGGAUGCAGAAAAGUGUGACAUUUGCACAGAUGAGUACAUGGGAGGUCAGCACCCCACAAAUCCUAACUUACUCAGCCCAGCAUCAUUCUUCUCCUCUUGGCAGAUUGUCUGUAGCCGAUUGGAGGAGUACAACAGCCAUCAGUCUUUAUGCAAUGGAACGCCCGAGGGACCUUUACGGCGUAAUCCUGGAAACCAUGACAAAUCCAGAACCCCAAGGCUCCCCUCUUCAGCUGAUGUAGAAUUUUGCCUGAGUUUGACCCAAUAUGAAUCUGGUUCCAUGGAUAAAGCUGCCAAUUUCAGCUUUAGAAAUACACUGGAAGGAUUUGCUAGUCCACUUACUGGGAUAGCGGAUGCCUCUCAAAGCAGCAUGCACAAUGCCUUGCACAUCUAUAUGAAUGGAACAAUGUCCCAGGUACAGGGAUCUGCCAACGAUCCUAUCUUCCUUCUUCACCAUGCAUUUGUUGACAGUAUUUUUGAGCAGUGGCUCCGAAGGCACCGUCCUCUUCAAGAAGUUUAUCCAGAAGCCAAUGCACCCAUUGGACAUAACCGGGAAUCCUACAUGGUUCCUUUUAUACCACUGUACAGAAAUGGUGAUUUCUUUAUUUCAUCCAAAGAUCUGGGCUAUGACUAUAGCUAUCUACAAGAUUCAGACCCAGACUCUUUUCAAGACUACAUUAAGUCCUAUUUGGAACAAGCGAGUCGGAUCUGGUCAUGGCUCCUUGGGGCGGCGAUGGUAGGGGCCGUCCUCACUGCCCUGCUGGCAGGGCUUGUGAGCUUGCUGUGUCGUCACAAGAGAAAGCAGCUUCCUGAAGAAAAGCAGCCACUCCUCAUGGAGAAAGAGGAUUACCACAGCUUGUAUCAGAGCCAUUUAUAA
+        
+        ```
+        
+        ``` python
+        #Prompt the user to enter the input RNA file name
+
+input_file_name = input("Enter the name of the input RNA File:")
 ```
 
-    The RNA sequence has been saved to Ubiquitin_C
-
-
-
-```python
-# Print the RNA sequence
-
-print(rna_sequence)
 ```
-
-    AUGCAGAUCUUCGUGAAGACUCUGACUGGUAAGACCAUCACCCUCGAGGUUGAGCCCAGUGACACCAUCGAGAAUGUCAAGGCAAAGAUCCAAGAUAAGGAAGGCAUCCCUCCUGACCAGCAGAGGCUGAUCUUUGCUGGAAAACAGCUGGAAGAUGGGCGCACCCUGUCUGACUACAACAUCCAGAAAGAGUCCACCCUGCACCUGGUGCUCCGUCUCAGAGGUGGGAUGCAAAUCUUCGUGAAGACACUCACUGGCAAGACCAUCACCCUUGAGGUCGAGCCCAGUGACACCAUCGAGAACGUCAAAGCAAAGAUCCAGGACAAGGAAGGCAUUCCUCCUGACCAGCAGAGGUUGAUCUUUGCCGGAAAGCAGCUGGAAGAUGGGCGCACCCUGUCUGACUACAACAUCCAGAAAGAGUCUACCCUGCACCUGGUGCUCCGUCUCAGAGGUGGGAUGCAGAUCUUCGUGAAGACCCUGACUGGUAAGACCAUCACCCUCGAGGUGGAGCCCAGUGACACCAUCGAGAAUGUCAAGGCAAAGAUCCAAGAUAAGGAAGGCAUUCCUCCUGAUCAGCAGAGGUUGAUCUUUGCCGGAAAACAGCUGGAAGAUGGUCGUACCCUGUCUGACUACAACAUCCAGAAAGAGUCCACCUUGCACCUGGUACUCCGUCUCAGAGGUGGGAUGCAAAUCUUCGUGAAGACACUCACUGGCAAGACCAUCACCCUUGAGGUCGAGCCCAGUGACACUAUCGAGAACGUCAAAGCAAAGAUCCAAGACAAGGAAGGCAUUCCUCCUGACCAGCAGAGGUUGAUCUUUGCCGGAAAGCAGCUGGAAGAUGGGCGCACCCUGUCUGACUACAACAUCCAGAAAGAGUCUACCCUGCACCUGGUGCUCCGUCUCAGAGGUGGGAUGCAGAUCUUCGUGAAGACCCUGACUGGUAAGACCAUCACUCUCGAAGUGGAGCCGAGUGACACCAUUGAGAAUGUCAAGGCAAAGAUCCAAGACAAGGAAGGCAUCCCUCCUGACCAGCAGAGGUUGAUCUUUGCCGGAAAACAGCUGGAAGAUGGUCGUACCCUGUCUGACUACAACAUCCAGAAAGAGUCCACCUUGCACCUGGUGCUCCGUCUCAGAGGUGGGAUGCAGAUCUUCGUGAAGACCCUGACUGGUAAGACCAUCACUCUCGAGGUGGAGCCGAGUGACACCAUUGAGAAUGUCAAGGCAAAGAUCCAAGACAAGGAAGGCAUCCCUCCUGACCAGCAGAGGUUGAUCUUUGCUGGGAAACAGCUGGAAGAUGGACGCACCCUGUCUGACUACAACAUCCAGAAAGAGUCCACCCUGCACCUGGUGCUCCGUCUUAGAGGUGGGAUGCAGAUCUUCGUGAAGACCCUGACUGGUAAGACCAUCACUCUCGAAGUGGAGCCGAGUGACACCAUUGAGAAUGUCAAGGCAAAGAUCCAAGACAAGGAAGGCAUCCCUCCUGACCAGCAGAGGUUGAUCUUUGCUGGGAAACAGCUGGAAGAUGGACGCACCCUGUCUGACUACAACAUCCAGAAAGAGUCCACCCUGCACCUGGUGCUCCGUCUUAGAGGUGGGAUGCAGAUCUUCGUGAAGACCCUGACUGGUAAGACCAUCACUCUCGAAGUGGAGCCGAGUGACACCAUUGAGAAUGUCAAGGCAAAGAUCCAAGACAAGGAAGGCAUCCCUCCUGACCAGCAGAGGUUGAUCUUUGCUGGGAAACAGCUGGAAGAUGGACGCACCCUGUCUGACUACAACAUCCAGAAAGAGUCCACCCUGCACCUGGUGCUCCGUCUCAGAGGUGGGAUGCAAAUCUUCGUGAAGACCCUGACUGGUAAGACCAUCACCCUCGAGGUGGAGCCCAGUGACACCAUCGAGAAUGUCAAGGCAAAGAUCCAAGAUAAGGAAGGCAUCCCUCCUGAUCAGCAGAGGUUGAUCUUUGCUGGGAAACAGCUGGAAGAUGGACGCACCCUGUCUGACUACAACAUCCAGAAAGAGUCCACUCUGCACUUGGUCCUGCGCUUGAGGGGGGGUGUCUAA
-
-
-
-```python
-
-```
-
-
-## Translating RNA into Protein
-A program that takes the RNA sequence created previously and translates it into the corresponding chain of amino acids (i.e. a protein)
-
-
-```python
-# Prompt user to enter the input RNA file name
-
-input_name = input("Input the name of the file containing the RNA sequence to be translated: ")
-```
-
-    Input the name of the file containing the RNA sequence to be translated:  Ubiquitin_C
-
-
-
-```python
-# Open the file and read the RNA sequence
-
-with open(input_name, "r") as input_file:
-    rna_sequence = input_file.read().strip()
-```
-
-
-```python
-# Define the codon table
-
+Enter the name of the input RNA File: TYR_RNA.txt
+ ```
+ 
+ ``` python
+ # Define the Codon Table
 codon_table = {
-    "UUU": "F", "UUC": "F", "UUA": "L", "UUG": "L",
+    "UUU": "F", "UUC": "F", "UUA": "L", "UUG": "L", 
     "CUU": "L", "CUC": "L", "CUA": "L", "CUG": "L",
     "AUU": "I", "AUC": "I", "AUA": "I", "AUG": "M",
     "GUU": "V", "GUC": "V", "GUA": "V", "GUG": "V",
@@ -1629,86 +1465,55 @@ codon_table = {
     "UGU": "C", "UGC": "C", "UGA": "*", "UGG": "W",
     "CGU": "R", "CGC": "R", "CGA": "R", "CGG": "R",
     "AGU": "S", "AGC": "S", "AGA": "R", "AGG": "R",
-    "GGU": "G", "GGC": "G", "GGA": "G", "GGG": "G"
+    "GGU": "G", "GGC": "G", "GGA": "G", "GGG": "G",
+        
 }
 ```
 
-
-```python
-# Translate RNA to protein
+``` python
+# Translate RNA to Protein
 
 protein_sequence = ""
 for i in range(0, len(rna_sequence), 3):
-    codon = rna_sequence[i:i+3]
+    codon = rna_sequence[i:i + 3]
     if len(codon) == 3:
-        amino_acid = codon_table[codon]
-        if amino_acid == "*":
+       amino_acid = codon_table[codon]
+       if amino_acid == "*":
             break
-        protein_sequence += amino_acid
+       protein_sequence += amino_acid
+       ```
+       
+       ```
+       # Prompt the user to enter the output file name 
+    
+output_file_name = input("Enter the name of the output file:" )
 ```
 
+``` python
+       # Save the protein sequence in a text file
 
-```python
-# Prompt user to enter output file name
-
-output_name = input("Enter the name of the output file: ")
-```
-
-    Enter the name of the output file:  UbiquitinC_Protein.txt
-
-
-
-```python
-# Save the protein sequence to a text file
-
-with open(output_name, "w") as output_file:
+with open(output_file_name, "w") as output_file:
     output_file.write(protein_sequence)
-    print(f"The protein sequence has been saved to {output_name}")
-```
-
-    The protein sequence has been saved to UbiquitinC_Protein.txt
-
-
-
-```python
-# Print the protein sequence
-
-print(protein_sequence)
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    print(f"The protein sequence has been saved to {output_file_name}")
+  ```
+  
+  ```
+  The protein sequence has been saved to TYR_Protien.txt
+  ```
+  
+  ``` python
+  print(protein_sequence)
+  ```
+  
+  ```
+  MLLAVLYCLLWSFQTSAGHFPRACVSSKNLMEKECCPPWSGDRSPCGQLSGRGSCQNILLSNAPLGPQFPFTGVDDRESWPSVFYNRTCQCSGNFMGFNCGNCKFGFWGPNCTERRLLVRRNIFDLSAPEKDKFFAYLTLAKHTISSDYVIPIGTYGQMKNGSTPMFNDINIYDLFVWMHYYVSMDALLGGSEIWRDIDFAHEAPAFLPWHRLFLLRWEQEIQKLTGDENFTIPYWDWRDAEKCDICTDEYMGGQHPTNPNLLSPASFFSSWQIVCSRLEEYNSHQSLCNGTPEGPLRRNPGNHDKSRTPRLPSSADVEFCLSLTQYESGSMDKAANFSFRNTLEGFASPLTGIADASQSSMHNALHIYMNGTMSQVQGSANDPIFLLHHAFVDSIFEQWLRRHRPLQEVYPEANAPIGHNRESYMVPFIPLYRNGDFFISSKDLGYDYSYLQDSDPDSFQDYIKSYLEQASRIWSWLLGAAMVGAVLTALLAGLVSLLCRHKRKQLPEEKQPLLMEKEDYHSLYQSHL
+        
+        ```
+        Thankyou for the class
+        
+        
+        
+        
+        
+        
+        
