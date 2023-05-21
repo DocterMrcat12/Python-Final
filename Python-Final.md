@@ -537,7 +537,134 @@ print(odds)
 [1, 3, 5, 7]
 ```
 
+``` python
+print (odds[0])
+print (odds[3])
+print (odds[-1])
 ```
+```
+1
+7
+7
+```
+
+``` python
+names = ['Bab', 'Tim', 'Joe']
+
+print(names)
+
+names[0] = 'Bob'
+
+print(names)
+```
+
+```
+['Bab', 'Tim', 'Joe']
+['Bob', 'Tim', 'Joe']
+```
+
+``` python
+odds.append(11)
+print(odds)
+```
+
+```
+[1, 3, 5, 7, 11]
+```
+
+``` python 
+
+removed_element = odds.pop(0)
+print (odds)
+print (removed_element)
+
+```
+
+```
+[3, 5, 7, 11]
+1
+```
+
+```python
+odds.reverse()
+print (odds)
+```
+
+``` 
+[11, 7, 5, 3]
+```
+
+```python
+odds = [3, 5, 7]
+primes = odds
+primes.append(2)
+print(primes)
+print(odds)
+```
+```
+[3, 5, 7, 2]
+[3, 5, 7, 2]
+```
+
+```python
+odds = [3, 5, 7]
+primes = list(odds)
+primes.append(2)
+print(primes)
+print(odds)
+```
+
+```
+[3, 5, 7, 2]
+[3, 5, 7]
+```
+
+``` python
+binomial_name = "Drosophila melanogaster"
+group = binomial_name[0:10]
+print('group:', group)
+
+species = binomial_name[11:23]
+print('species:', species)
+
+chromosomes = ['X', 'Y', '2', '3', '4']
+autosomes = chromosomes[2:5]
+print('autosomes:', autosomes)
+
+last = chromosomes[-1]
+print('last:', last)
+```
+
+```
+group: Drosophila
+species: melanogaster
+autosomes: ['2', '3', '4']
+last: 4
+```
+
+``` python 
+date = 'Monday4 January 2023'
+day = date[0:6]
+print(day)
+day = date[:6]
+print(day)
+```
+
+```
+Monday
+Monday
+```
+
+```python
+months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'sep', 'oct', 'nov', 'dec']
+sond = months[8:12]
+print(sond)
+```
+
+```
+['oct', 'nov', 'dec']
+```
+
 
 
 
