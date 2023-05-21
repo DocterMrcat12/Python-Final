@@ -330,6 +330,7 @@ Saving Full Array as 'Data'
 data = numpy.loadtxt(fname = 'inflammation-01.csv', delimiter = ',')
 ```
 
+<!-- as much as I loved orginization and notes I now have a need for speed so ill tak the points off to just turn this in on time-->
 ``` python
 print (data[29,19])
 ```
@@ -734,6 +735,948 @@ print(len(name))
 ```
 
     3
+    
+    ``` python
+    
+    import glob
+
+```
+
+``` python
+print(glob.glob('inflammation*.csv'))
+```
+
+```
+['inflammation-05.csv', 'inflammation-12.csv', 'inflammation-04.csv', 'inflammation-08.csv', 'inflammation-10.csv', 'inflammation-06.csv', 'inflammation-09.csv', 'inflammation-01.csv', 'inflammation-07.csv', 'inflammation-11.csv', 'inflammation-03.csv', 'inflammation-02.csv']
+import glob
+```
+
+``` python
+import glob
+import numpy
+import matplotlib.pyplot
+
+filenames = sorted(glob.glob('inflammation*.csv'))
+filenames = filenames[0:3]
+for filename in filenames:
+    print(filename)
+
+    data = numpy.loadtxt(fname=filename, delimiter=',')
+
+    fig = matplotlib.pyplot.figure(figsize=(10.0, 3.0))
+
+    axes1 = fig.add_subplot(1, 3, 1)
+    axes2 = fig.add_subplot(1, 3, 2)
+    axes3 = fig.add_subplot(1, 3, 3)
+
+    axes1.set_ylabel('average')
+    axes1.plot(numpy.mean(data, axis=0))
+
+    axes2.set_ylabel('max')
+    axes2.plot(numpy.amax(data, axis=0))
+
+    axes3.set_ylabel('min')
+    axes3.plot(numpy.amin(data, axis=0))
+
+    fig.tight_layout()
+    matplotlib.pyplot.show()
+    ```
+    
+![why is it grey ;-;](https://github.com/DocterMrcat12/Python-Final/assets/133600341/19320034-52d9-4579-af66-4c0e22d5bba7)
+![AHHHHHH](https://github.com/DocterMrcat12/Python-Final/assets/133600341/17ea6c8d-1e87-4e18-97b1-c05f4a87b70c)
+
+```
+Making Choices
+
+``` python
+num = 37
+if num > 100:
+    print('greater')
+else:
+    print('not greater')
+print('done')
+```
+```
+    not greater
+    done
+    ```
+```
+
+
+```python
+num = 53
+print('before conditional...')
+if num > 100:
+    print(num, 'is greater than 100')
+print('...after conditional')
+```
+```
+    before conditional...
+    ...after conditional
+
+```
+
+``` python
+num = 14
+if num > 0:
+    print(num, 'is positive')
+elif num == 0:
+    print(num, 'is zero')
+else: print(num, 'is negative')
+```
+```
+    14 is positive
+```
+
+
+``` python
+if (1 > 0) and (-1 >= 0):
+    print('both parts are true')
+else:
+    print('at least one part is false')
+```
+```
+    at least one part is false
+```
+
+
+``` python
+if (-1 > 0) or (-1 >= 0):
+    print('at least one part is true')
+else:
+    print('both of these are false')
+```
+```
+    both of these are false
+```
+
+
+``` python
+import numpy
+```
+
+
+``` python
+data = numpy.loadtxt(fname='inflammation-01.csv', delimiter = ',')
+```
+
+
+``` python
+max_inflammation_0 = numpy.amax(data, axis=0)[0]
+```
+
+``` python
+max_inflammation_20 = numpy.amax(data, axis=0)[20]
+```
+```python
+if max_inflammation_0 == 0 and max_inflammation_20 == 20:
+    print('Suspicious looking maxima!')
+```
+```
+    Suspicious looking maxima!
+```
+
+
+```python
+max_inflammation_20 = numpy.amax(data, axis=0)[20]
+if max_inflammation_0 == 0 and max_inflammation_20 == 20:
+    print('Suspicious looking maxima!')
+elif numpy.sum(numpy.amin(data, axis=0)) == 0:
+    print('Minima add up to zero!')
+else:
+    print('Seems ok!')
+```
+```
+    Suspicious looking maxima!
+```
+
+
+```python
+data = numpy.loadtxt(fname = 'inflammation-03.csv', delimiter=',')
+
+max_inflammation_0 = numpy.amax(data, axis=0)[0]
+
+max_inflammation_20 = numpy.amax(data, axis=0)[20]
+
+if max_inflammation_0 == 0 and max_inflammation_20 == 20:
+    print('Suspicious looking maxima!')
+elif numpy.sum(numpy.amin(data, axis=0)) == 0:
+    print('Minima add up to zero! -> HEALTHY PARTICIPANT ALERT!')
+else:
+    print('Seems OK!')
+```
+```
+    Minima add up to zero! -> HEALTHY PARTICIPANT ALERT!
+```
+
+
+
+```python
+fahrenheit_val = 99
+celsius_val = ((fahrenheit_val - 32) * (5/9))
+
+print(celsius_val)
+```
+```
+    37.22222222222222
+```
+
+
+```python
+def explicit_fahr_to_celsius(temp))
+    converted = ((temp - 32) * (5/9))
+    return converted
+```
+
+
+``` python
+def fahr_to_celsius(temp):
+    # More efficient function without creating a new variable
+    return ((temp -32) * (5/9))
+```
+
+
+``` python
+fahr_to_celsius(32)
+```
+
+
+```
+    0.0
+```
+
+
+```python
+explicit_fahr_to_celsius(32)
+```
+
+
+```
+    0.0
+    ```
+
+
+```python
+print(fahr_to_celsius(32), 'C')
+print(fahr_to_celsius(212), 'C')
+```
+```
+   0.0 C
+   100.0 C
+```
+
+
+```python
+def celsius_to_kelvin(temp_c):
+    return temp_c + 273.15
+print(celsius_to_kelvin(0.))
+```
+```
+   273.15
+```
+
+
+``` python
+def fahr_to_kelvin(temp_f):
+    temp_c = fahr_to_celsius(temp_f)
+    temp_k = celsius_to_kelvin(temp_c)
+    return temp_k
+
+print(fahr_to_kelvin(212.0))
+```
+```
+   373.15
+```
+
+
+```python
+temp_kelvin = fahr_to_kelvin(212)
+print(temp_kelvin)
+```
+```
+    Temperature in Kelvin was: 373.15
+```
+
+
+```python
+def print_temperatures():
+    print(temp_fahr)
+    print(temp_kelvin)
+
+temp_fahr = 212.0
+temp_kelvin = fahr_to_kelvin(temp_fahr)
+
+print_temperatures()
+```
+```
+    Temperature in Fahrenheit was: 212.0
+    Temperature in Kelvin was: 373.15
+```
+
+siydhvbfshdbfioavhbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbdf
+``` python
+import numpy
+import matplotlib.pyplot
+import glob
+```
+
+```python
+def visualize(filename):
+    data = numpy.loadtxt(fname = filename, delimiter = ',')
+    
+    fig = matplotlib.pyplot.figure(figsize= (10.0, 3.0))
+    
+    axes1 = fig.add_subplot(1, 3, 1)
+    axes2 = fig.add_subplot(1, 3, 2)
+    axes3 = fig.add_subplot(1, 3, 3)
+    
+    axes1.set_ylabel('Average')
+    axes1.plot(numpy.mean(data, axis=0))
+    
+    axes2.set_ylabel('Max')
+    axes2.plot(numpy.mean(data, axis=0))
+    
+    axes3.set_ylabel('Min')
+    axes3.plot(numpy.mean(data, axis=0))
+    
+    fig.tight_layout()
+    matplotlib.pyplot.show()
+```
+
+```python
+def detect_problems(filename):
+    data = numpy.loadtxt(fname = filename, delimiter = ',')
+    
+    if numpy.amax(data, axis = 0)[0] == 0 and numpy.amax(data, axis=0)[20] == 20:
+        print("Suspicious looking maxima!")
+    elif numpy.sum(numpy.amin(data, axis=0)) == 0:
+        print('Minima add up to zero!')
+    else:
+        print('Seems ok!')
+```
+
+
+```python
+filenames = sorted(glob.glob('inflammation*.csv'))
+
+for filename in filenames:
+    print(filename)
+    visualize(filename)
+    detect_problems(filename)
+```
+![1](https://github.com/DocterMrcat12/Python-Final/assets/133600341/69c09d06-004e-4664-9f92-cf47acd72879)
+![2](https://github.com/DocterMrcat12/Python-Final/assets/133600341/6040b2b7-aecc-46e4-bcd3-d03f929f67db)
+![3](https://github.com/DocterMrcat12/Python-Final/assets/133600341/8a761ae4-2e4c-428b-ad92-b2412711121c)
+![4](https://github.com/DocterMrcat12/Python-Final/assets/133600341/0cfba26e-10f6-4b3f-a98d-2eeb62204b85)
+![5](https://github.com/DocterMrcat12/Python-Final/assets/133600341/77cfd58a-67c6-4c96-8191-0d6622814d67)
+![6](https://github.com/DocterMrcat12/Python-Final/assets/133600341/74f0d22b-8ce6-4f78-9f94-ff5f07575659)
+![7](https://github.com/DocterMrcat12/Python-Final/assets/133600341/a2e1fd7b-2562-45e3-87e8-262aca3adc97)
+![8](https://github.com/DocterMrcat12/Python-Final/assets/133600341/72d6311b-f35e-4f12-bb2c-e4e8e81318e8)
+![9](https://github.com/DocterMrcat12/Python-Final/assets/133600341/8e1b90ba-3706-414b-b9c8-01964b649c0b)
+![10](https://github.com/DocterMrcat12/Python-Final/assets/133600341/8485d377-f03a-41c9-94a8-17c0ce2e68a3)
+![11](https://github.com/DocterMrcat12/Python-Final/assets/133600341/9bafdbdd-fc2f-4646-9b8b-62618ea2f331)
+![12](https://github.com/DocterMrcat12/Python-Final/assets/133600341/83d7a8b2-4106-4a30-bad3-097d1e0cb7a1)
+
+
+
+```python
+def offset_mean(data, target_mean_value):
+    return (data - numpy.mean(data)) + target_mean_value
+```
+```python
+z = numpy.zeros((2,2))
+print(offset_mean(z, 3))
+```
+```
+    [[3. 3.]
+     [3. 3.]]
+```
+
+
+```python
+data = numpy.loadtxt(fname = 'inflammation-01.csv', delimiter = ',')
+
+print(offset_mean(data, 0))
+```
+```
+    [[-6.14875 -6.14875 -5.14875 ... -3.14875 -6.14875 -6.14875]
+     [-6.14875 -5.14875 -4.14875 ... -5.14875 -6.14875 -5.14875]
+     [-6.14875 -5.14875 -5.14875 ... -4.14875 -5.14875 -5.14875]
+     ...
+     [-6.14875 -5.14875 -5.14875 ... -5.14875 -5.14875 -5.14875]
+     [-6.14875 -6.14875 -6.14875 ... -6.14875 -4.14875 -6.14875]
+     [-6.14875 -6.14875 -5.14875 ... -5.14875 -5.14875 -6.14875]]
+
+```
+
+```python
+print(numpy.amin(data), numpy.mean(data), numpy.amax(data))
+offset_data = offset_mean(data, 0)
+print(
+    numpy.amin(offset_data),
+    numpy.mean(offset_data),
+    numpy.amax(offset_data))
+```
+```
+   0.0 6.14875 20.0
+   -6.14875 2.842170943040401e-16 13.85125
+
+```
+
+```python
+print(numpy.std(data), numpy.std(offset_data))
+```
+```
+    4.613833197118566 4.613833197118566
+```
+
+```python
+print(
+      numpy.std(data) - numpy.std(offset_data))
+```
+```
+0.0
+```
+
+
+```python
+def offset_mean(data, target_mean_value):
+    return (data - numpy.mean(data)) + target_mean_value
+```
+
+
+```python
+def offset_mean(data, target_mean_value):
+    return(data - numpy.mean(data)) + target_mean_value
+```
+
+```python
+numpy.loadtxt('inflammation-01.csv', delimiter = ',')
+```
+
+```
+
+
+    array([[0., 0., 1., ..., 3., 0., 0.],
+           [0., 1., 2., ..., 1., 0., 1.],
+           [0., 1., 1., ..., 2., 1., 1.],
+           ...,
+           [0., 1., 1., ..., 1., 1., 1.],
+           [0., 0., 0., ..., 0., 2., 0.],
+           [0., 0., 1., ..., 1., 1., 0.]])
+```
+
+
+
+```python
+def offset_mean(data, target_mean_value = 0.0):
+    return(data - numpy.mean(data)) + target_mean_value
+```
+
+
+```python
+test_data = numpy.zeros((2,2))
+print(offset_mean(test_data, 3))
+```
+```
+    [[3. 3.]
+     [3. 3.]]
+```
+
+
+```python
+print(offset_mean(test_data))
+```
+```
+    [[0. 0.]
+     [0. 0.]]
+```
+
+
+```python
+def display(a=1, b=2, c=3):
+    print('a:', a, 'b:', b, 'c:', c)
+print('no parameters:')
+display()
+print('one parameter:')
+display(55)
+print('two paramters:')
+display(55,66)
+```
+sdflihhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+
+    no parameters:
+    a: 1 b: 2 c: 3
+    one parameter:
+    a: 55 b: 2 c: 3
+    two paramters:
+    a: 55 b: 66 c: 3
+
+
+
+```python
+print('only setting the value of c')
+display(c = 77)
+```
+
+    only setting the value of c
+    a: 1 b: 2 c: 77
+
+
+
+```python
+help(numpy.loadtxt)
+```
+
+    Help on function loadtxt in module numpy:
+    
+    loadtxt(fname, dtype=<class 'float'>, comments='#', delimiter=None, converters=None, skiprows=0, usecols=None, unpack=False, ndmin=0, encoding='bytes', max_rows=None)
+        Load data from a text file.
+        
+        Each row in the text file must have the same number of values.
+        
+        Parameters
+        ----------
+        fname : file, str, or pathlib.Path
+            File, filename, or generator to read.  If the filename extension is
+            ``.gz`` or ``.bz2``, the file is first decompressed. Note that
+            generators should return byte strings for Python 3k.
+        dtype : data-type, optional
+            Data-type of the resulting array; default: float.  If this is a
+            structured data-type, the resulting array will be 1-dimensional, and
+            each row will be interpreted as an element of the array.  In this
+            case, the number of columns used must match the number of fields in
+            the data-type.
+        comments : str or sequence of str, optional
+            The characters or list of characters used to indicate the start of a
+            comment. None implies no comments. For backwards compatibility, byte
+            strings will be decoded as 'latin1'. The default is '#'.
+        delimiter : str, optional
+            The string used to separate values. For backwards compatibility, byte
+            strings will be decoded as 'latin1'. The default is whitespace.
+        converters : dict, optional
+            A dictionary mapping column number to a function that will parse the
+            column string into the desired value.  E.g., if column 0 is a date
+            string: ``converters = {0: datestr2num}``.  Converters can also be
+            used to provide a default value for missing data (but see also
+            `genfromtxt`): ``converters = {3: lambda s: float(s.strip() or 0)}``.
+            Default: None.
+        skiprows : int, optional
+            Skip the first `skiprows` lines, including comments; default: 0.
+        usecols : int or sequence, optional
+            Which columns to read, with 0 being the first. For example,
+            ``usecols = (1,4,5)`` will extract the 2nd, 5th and 6th columns.
+            The default, None, results in all columns being read.
+        
+            .. versionchanged:: 1.11.0
+                When a single column has to be read it is possible to use
+                an integer instead of a tuple. E.g ``usecols = 3`` reads the
+                fourth column the same way as ``usecols = (3,)`` would.
+        unpack : bool, optional
+            If True, the returned array is transposed, so that arguments may be
+            unpacked using ``x, y, z = loadtxt(...)``.  When used with a structured
+            data-type, arrays are returned for each field.  Default is False.
+        ndmin : int, optional
+            The returned array will have at least `ndmin` dimensions.
+            Otherwise mono-dimensional axes will be squeezed.
+            Legal values: 0 (default), 1 or 2.
+        
+            .. versionadded:: 1.6.0
+        encoding : str, optional
+            Encoding used to decode the inputfile. Does not apply to input streams.
+            The special value 'bytes' enables backward compatibility workarounds
+            that ensures you receive byte arrays as results if possible and passes
+            'latin1' encoded strings to converters. Override this value to receive
+            unicode arrays and pass strings as input to converters.  If set to None
+            the system default is used. The default value is 'bytes'.
+        
+            .. versionadded:: 1.14.0
+        max_rows : int, optional
+            Read `max_rows` lines of content after `skiprows` lines. The default
+            is to read all the lines.
+        
+            .. versionadded:: 1.16.0
+        
+        Returns
+        -------
+        out : ndarray
+            Data read from the text file.
+        
+        See Also
+        --------
+        load, fromstring, fromregex
+        genfromtxt : Load data with missing values handled as specified.
+        scipy.io.loadmat : reads MATLAB data files
+        
+        Notes
+        -----
+        This function aims to be a fast reader for simply formatted files.  The
+        `genfromtxt` function provides more sophisticated handling of, e.g.,
+        lines with missing values.
+        
+        .. versionadded:: 1.10.0
+        
+        The strings produced by the Python float.hex method can be used as
+        input for floats.
+        
+        Examples
+        --------
+        >>> from io import StringIO   # StringIO behaves like a file object
+        >>> c = StringIO(u"0 1\n2 3")
+        >>> np.loadtxt(c)
+        array([[0., 1.],
+               [2., 3.]])
+        
+        >>> d = StringIO(u"M 21 72\nF 35 58")
+        >>> np.loadtxt(d, dtype={'names': ('gender', 'age', 'weight'),
+        ...                      'formats': ('S1', 'i4', 'f4')})
+        array([(b'M', 21, 72.), (b'F', 35, 58.)],
+              dtype=[('gender', 'S1'), ('age', '<i4'), ('weight', '<f4')])
+        
+        >>> c = StringIO(u"1,0,2\n3,0,4")
+        >>> x, y = np.loadtxt(c, delimiter=',', usecols=(0, 2), unpack=True)
+        >>> x
+        array([1., 3.])
+        >>> y
+        array([2., 4.])
+    
+
+
+
+```python
+numpy.loadtxt('inflammation-01.csv', delimiter = ',')
+```
+
+
+
+
+    array([[0., 0., 1., ..., 3., 0., 0.],
+           [0., 1., 2., ..., 1., 0., 1.],
+           [0., 1., 1., ..., 2., 1., 1.],
+           ...,
+           [0., 1., 1., ..., 1., 1., 1.],
+           [0., 0., 0., ..., 0., 2., 0.],
+           [0., 0., 1., ..., 1., 1., 0.]])
+
+
+
+
+```python
+def s(p):
+    s = 0
+    for v in p:
+        a += v
+    m = a / len(p)
+    d = 0
+    for v in p:
+        d += (v - m) * (v - m)
+    return numpy.sqrt(d / len(p) - 1)
+
+# same as above, but readable
+def std_dev(sample):
+    sample_sum = 0
+    for value in sample:
+        sample_sum += value
+
+    sample_mean = sample_sum / len(sample)
+
+    sum_squared_devs = 0
+    for value in sample:
+        sum_squared_devs += (value - sample_mean) * (value - sample_mean)
+
+    return numpy.sqrt(sum_sqared_devs / len(sample) - 1)
+```
+
+
+## Defensive Programming
+Using assertions as part of defensive programming strategies
+
+
+```python
+numbers = [1.5, 2.3, 0.7, 0.001, 4.4]
+total = 0.0
+for num in numbers:
+    assert num > 0.0, 'Data should only contain positive values'
+    total += num
+print('total is:', total)
+```
+
+    total is: 8.901
+
+
+
+```python
+def normalize_rectangle(rect):
+    """Normalizes a rectangle so that it is at the origin and 1.0 units long on its longest axis.
+    Input should be of the format (x0, y0, x1, y1).
+    (x0, y0) and (x1, y1) define the lower left and upper right corners of the recangle, respectively."""
+    assert len(rect) == 4, 'Rectangles must contain 4 coordinates'
+    x0, y0, x1, y1 = rect
+    assert x0 < x1, 'Invalid X coordinates'
+    assert y0 < y1, 'Invalid Y coordinates'
+
+    dx = x1 - x0
+    dy = y1 - y0
+    if dx > dy:
+        scaled = dx / dy
+        upper_x, upper_y = 1.0, scaled
+    else:
+        scaled = dx / dy
+        upper_x, upper_y = scaled, 1.0
+    
+    assert 0 < upper_x <= 1.0, 'Calculated upper x coordinate invalid'
+    assert 0 < upper_y <= 1.0, 'Calculated upper y coordinate invalid'
+
+    return(0, 0, upper_x, upper_y)
+```
+
+
+```python
+print(normalize_rectangle((0.0, 1.0, 2.0)))
+```
+
+
+    ---------------------------------------------------------------------------
+
+    AssertionError                            Traceback (most recent call last)
+
+    <ipython-input-6-a81b6ed7619a> in <module>
+    ----> 1 print(normalize_rectangle((0.0, 1.0, 2.0)))
+    
+
+    <ipython-input-5-4a7982d53b1a> in normalize_rectangle(rect)
+          3     Input should be of the format (x0, y0, x1, y1).
+          4     (x0, y0) and (x1, y1) define the lower left and upper right corners of the recangle, respectively."""
+    ----> 5     assert len(rect) == 4, 'Rectangles must contain 4 coordinates'
+          6     x0, y0, x1, y1 = rect
+          7     assert x0 < x1, 'Invalid X coordinates'
+
+
+    AssertionError: Rectangles must contain 4 coordinates
+
+
+
+```python
+print(normalize_rectangle((4.0, 2.0, 1.0, 5.0)))
+```
+
+
+    ---------------------------------------------------------------------------
+
+    AssertionError                            Traceback (most recent call last)
+
+    <ipython-input-7-5e28a32bada1> in <module>
+    ----> 1 print(normalize_rectangle((4.0, 2.0, 1.0, 5.0)))
+    
+
+    <ipython-input-5-4a7982d53b1a> in normalize_rectangle(rect)
+          5     assert len(rect) == 4, 'Rectangles must contain 4 coordinates'
+          6     x0, y0, x1, y1 = rect
+    ----> 7     assert x0 < x1, 'Invalid X coordinates'
+          8     assert y0 < y1, 'Invalid Y coordinates'
+          9 
+
+
+    AssertionError: Invalid X coordinates
+
+
+
+```python
+print(normalize_rectangle((0.0, 0.0, 1.0, 5.0)))
+```
+
+    (0, 0, 0.2, 1.0)
+
+
+
+```python
+print(normalize_rectangle((0.0, 0.0, 5.0, 1.0)))
+```
+
+
+    ---------------------------------------------------------------------------
+
+    AssertionError                            Traceback (most recent call last)
+
+    <ipython-input-9-1337bef8f4bf> in <module>
+    ----> 1 print(normalize_rectangle((0.0, 0.0, 5.0, 1.0)))
+    
+
+    <ipython-input-5-4a7982d53b1a> in normalize_rectangle(rect)
+         18 
+         19     assert 0 < upper_x <= 1.0, 'Calculated upper x coordinate invalid'
+    ---> 20     assert 0 < upper_y <= 1.0, 'Calculated upper y coordinate invalid'
+         21 
+         22     return(0, 0, upper_x, upper_y)
+
+
+    AssertionError: Calculated upper y coordinate invalid
+
+
+## Transcribing DNA into RNA
+A program that takes DNA sequences (formatted as a FASTA file) and produces the equivalent RNA sequence
+
+
+```python
+# Prompt user to enter the input FASTA file name
+
+input_file_name = input("Input the name of the FASTA file to be transcribed: ")
+```
+
+    Input the name of the FASTA file to be transcribed:  UBC.txt
+
+
+
+```python
+# Open the input file and read the DNA sequence
+
+with open(input_file_name, "r") as input_file:
+    dna_sequence = ""
+    for line in input_file:
+        if line.startswith(">"):
+            continue
+        dna_sequence += line.strip()
+```
+
+
+```python
+# Transcribe the DNA to RNA
+
+rna_sequence = ""
+for nucleotide in dna_sequence:
+    if nucleotide == "T":
+        rna_sequence += "U"
+    else:
+        rna_sequence += nucleotide
+```
+
+
+```python
+# Prompt the user to enter the output file name
+
+output_name = input("Enter the name of the ouput file: ")
+```
+
+    Enter the name of the ouput file:  Ubiquitin_C
+
+
+
+```python
+# Save the RNA sequence to a text file
+
+with open(output_name, "w") as output_file:
+    output_file.write(rna_sequence)
+    print(f"The RNA sequence has been saved to {output_name}")
+```
+
+    The RNA sequence has been saved to Ubiquitin_C
+
+
+
+```python
+# Print the RNA sequence
+
+print(rna_sequence)
+```
+
+    AUGCAGAUCUUCGUGAAGACUCUGACUGGUAAGACCAUCACCCUCGAGGUUGAGCCCAGUGACACCAUCGAGAAUGUCAAGGCAAAGAUCCAAGAUAAGGAAGGCAUCCCUCCUGACCAGCAGAGGCUGAUCUUUGCUGGAAAACAGCUGGAAGAUGGGCGCACCCUGUCUGACUACAACAUCCAGAAAGAGUCCACCCUGCACCUGGUGCUCCGUCUCAGAGGUGGGAUGCAAAUCUUCGUGAAGACACUCACUGGCAAGACCAUCACCCUUGAGGUCGAGCCCAGUGACACCAUCGAGAACGUCAAAGCAAAGAUCCAGGACAAGGAAGGCAUUCCUCCUGACCAGCAGAGGUUGAUCUUUGCCGGAAAGCAGCUGGAAGAUGGGCGCACCCUGUCUGACUACAACAUCCAGAAAGAGUCUACCCUGCACCUGGUGCUCCGUCUCAGAGGUGGGAUGCAGAUCUUCGUGAAGACCCUGACUGGUAAGACCAUCACCCUCGAGGUGGAGCCCAGUGACACCAUCGAGAAUGUCAAGGCAAAGAUCCAAGAUAAGGAAGGCAUUCCUCCUGAUCAGCAGAGGUUGAUCUUUGCCGGAAAACAGCUGGAAGAUGGUCGUACCCUGUCUGACUACAACAUCCAGAAAGAGUCCACCUUGCACCUGGUACUCCGUCUCAGAGGUGGGAUGCAAAUCUUCGUGAAGACACUCACUGGCAAGACCAUCACCCUUGAGGUCGAGCCCAGUGACACUAUCGAGAACGUCAAAGCAAAGAUCCAAGACAAGGAAGGCAUUCCUCCUGACCAGCAGAGGUUGAUCUUUGCCGGAAAGCAGCUGGAAGAUGGGCGCACCCUGUCUGACUACAACAUCCAGAAAGAGUCUACCCUGCACCUGGUGCUCCGUCUCAGAGGUGGGAUGCAGAUCUUCGUGAAGACCCUGACUGGUAAGACCAUCACUCUCGAAGUGGAGCCGAGUGACACCAUUGAGAAUGUCAAGGCAAAGAUCCAAGACAAGGAAGGCAUCCCUCCUGACCAGCAGAGGUUGAUCUUUGCCGGAAAACAGCUGGAAGAUGGUCGUACCCUGUCUGACUACAACAUCCAGAAAGAGUCCACCUUGCACCUGGUGCUCCGUCUCAGAGGUGGGAUGCAGAUCUUCGUGAAGACCCUGACUGGUAAGACCAUCACUCUCGAGGUGGAGCCGAGUGACACCAUUGAGAAUGUCAAGGCAAAGAUCCAAGACAAGGAAGGCAUCCCUCCUGACCAGCAGAGGUUGAUCUUUGCUGGGAAACAGCUGGAAGAUGGACGCACCCUGUCUGACUACAACAUCCAGAAAGAGUCCACCCUGCACCUGGUGCUCCGUCUUAGAGGUGGGAUGCAGAUCUUCGUGAAGACCCUGACUGGUAAGACCAUCACUCUCGAAGUGGAGCCGAGUGACACCAUUGAGAAUGUCAAGGCAAAGAUCCAAGACAAGGAAGGCAUCCCUCCUGACCAGCAGAGGUUGAUCUUUGCUGGGAAACAGCUGGAAGAUGGACGCACCCUGUCUGACUACAACAUCCAGAAAGAGUCCACCCUGCACCUGGUGCUCCGUCUUAGAGGUGGGAUGCAGAUCUUCGUGAAGACCCUGACUGGUAAGACCAUCACUCUCGAAGUGGAGCCGAGUGACACCAUUGAGAAUGUCAAGGCAAAGAUCCAAGACAAGGAAGGCAUCCCUCCUGACCAGCAGAGGUUGAUCUUUGCUGGGAAACAGCUGGAAGAUGGACGCACCCUGUCUGACUACAACAUCCAGAAAGAGUCCACCCUGCACCUGGUGCUCCGUCUCAGAGGUGGGAUGCAAAUCUUCGUGAAGACCCUGACUGGUAAGACCAUCACCCUCGAGGUGGAGCCCAGUGACACCAUCGAGAAUGUCAAGGCAAAGAUCCAAGAUAAGGAAGGCAUCCCUCCUGAUCAGCAGAGGUUGAUCUUUGCUGGGAAACAGCUGGAAGAUGGACGCACCCUGUCUGACUACAACAUCCAGAAAGAGUCCACUCUGCACUUGGUCCUGCGCUUGAGGGGGGGUGUCUAA
+
+
+
+```python
+
+```
+
+
+## Translating RNA into Protein
+A program that takes the RNA sequence created previously and translates it into the corresponding chain of amino acids (i.e. a protein)
+
+
+```python
+# Prompt user to enter the input RNA file name
+
+input_name = input("Input the name of the file containing the RNA sequence to be translated: ")
+```
+
+    Input the name of the file containing the RNA sequence to be translated:  Ubiquitin_C
+
+
+
+```python
+# Open the file and read the RNA sequence
+
+with open(input_name, "r") as input_file:
+    rna_sequence = input_file.read().strip()
+```
+
+
+```python
+# Define the codon table
+
+codon_table = {
+    "UUU": "F", "UUC": "F", "UUA": "L", "UUG": "L",
+    "CUU": "L", "CUC": "L", "CUA": "L", "CUG": "L",
+    "AUU": "I", "AUC": "I", "AUA": "I", "AUG": "M",
+    "GUU": "V", "GUC": "V", "GUA": "V", "GUG": "V",
+    "UCU": "S", "UCC": "S", "UCA": "S", "UCG": "S",
+    "CCU": "P", "CCC": "P", "CCA": "P", "CCG": "P",
+    "ACU": "T", "ACC": "T", "ACA": "T", "ACG": "T",
+    "GCU": "A", "GCC": "A", "GCA": "A", "GCG": "A",
+    "UAU": "Y", "UAC": "Y", "UAA": "*", "UAG": "*",
+    "CAU": "H", "CAC": "H", "CAA": "Q", "CAG": "Q",
+    "AAU": "N", "AAC": "N", "AAA": "K", "AAG": "K",
+    "GAU": "D", "GAC": "D", "GAA": "E", "GAG": "E",
+    "UGU": "C", "UGC": "C", "UGA": "*", "UGG": "W",
+    "CGU": "R", "CGC": "R", "CGA": "R", "CGG": "R",
+    "AGU": "S", "AGC": "S", "AGA": "R", "AGG": "R",
+    "GGU": "G", "GGC": "G", "GGA": "G", "GGG": "G"
+}
+```
+
+
+```python
+# Translate RNA to protein
+
+protein_sequence = ""
+for i in range(0, len(rna_sequence), 3):
+    codon = rna_sequence[i:i+3]
+    if len(codon) == 3:
+        amino_acid = codon_table[codon]
+        if amino_acid == "*":
+            break
+        protein_sequence += amino_acid
+```
+
+
+```python
+# Prompt user to enter output file name
+
+output_name = input("Enter the name of the output file: ")
+```
+
+    Enter the name of the output file:  UbiquitinC_Protein.txt
+
+
+
+```python
+# Save the protein sequence to a text file
+
+with open(output_name, "w") as output_file:
+    output_file.write(protein_sequence)
+    print(f"The protein sequence has been saved to {output_name}")
+```
+
+    The protein sequence has been saved to UbiquitinC_Protein.txt
+
+
+
+```python
+# Print the protein sequence
+
+print(protein_sequence)
+```
+
+
 
 
 
